@@ -21,16 +21,16 @@ void MainWindow::on_add_student_clicked()
 {
     student *Q = new student();
     if (Q->SetName1(ui->name1->text().toUtf8())+
-        Q->SetName2(ui->name2->text().toUtf8())+
-        Q->SetName3(ui->name3->text().toUtf8()))
+            Q->SetName2(ui->name2->text().toUtf8())+
+            Q->SetName3(ui->name3->text().toUtf8()))
     {
         QMessageBox::critical(this, "Error","Invalid FIO");
         return;
     }
 
     if (Q->SetScore1(ui->score1->text().toUtf8().data())+
-        Q->SetScore2(ui->score2->text().toUtf8().data())+
-        Q->SetScore3(ui->score3->text().toUtf8().data()))
+            Q->SetScore2(ui->score2->text().toUtf8().data())+
+            Q->SetScore3(ui->score3->text().toUtf8().data()))
     {
         QMessageBox::critical(this, "Error","Invalid CT");
         return;
@@ -47,12 +47,12 @@ void MainWindow::on_out_clicked()
 {
     student *Q = head;
     char mas[10001] = {'\0'};
-     while (Q->next!=NULL)
-     {
+    while (Q->next!=NULL)
+    {
         strcat(mas,Q->GetName1()+" "+Q->GetName2()+" "+Q->GetName3()+" ("+QByteArray::number(Q->GetScore1())+","+QByteArray::number(Q->GetScore2())+","+QByteArray::number(Q->GetScore3())+")\n");
         Q = Q->next;
-     }
-     QMessageBox::information(this, "List of students",mas);
+    }
+    QMessageBox::information(this, "List of students",mas);
 }
 
 void MainWindow::on_find_button_clicked()
@@ -74,8 +74,8 @@ void MainWindow::on_find_button_clicked()
 void MainWindow::on_fire_student_clicked()
 {
     if (student().NameCheck(ui->name1_fire->text().toUtf8())+
-        student().NameCheck(ui->name2_fire->text().toUtf8())+
-        student().NameCheck(ui->name3_fire->text().toUtf8()))
+            student().NameCheck(ui->name2_fire->text().toUtf8())+
+            student().NameCheck(ui->name3_fire->text().toUtf8()))
     {
         QMessageBox::critical(this, "Error","Invalid FIO");
         return;
@@ -103,8 +103,8 @@ void MainWindow::on_fire_student_clicked()
         }
         else
         {
-        pQ = Q;
-        Q=Q->next;
+            pQ = Q;
+            Q=Q->next;
         }
     }
 }
@@ -125,7 +125,7 @@ void MainWindow::on_krasava_button_clicked()
     while (Q->next!=NULL)
     {
         if (Q->GetScore1()+Q->GetScore2()+Q->GetScore3()>=sum/k)
-          strcat(mas,Q->GetName1()+" "+Q->GetName2()+" "+Q->GetName3()+" ("+QByteArray::number(Q->GetScore1())+","+QByteArray::number(Q->GetScore2())+","+QByteArray::number(Q->GetScore3())+")\n");
+            strcat(mas,Q->GetName1()+" "+Q->GetName2()+" "+Q->GetName3()+" ("+QByteArray::number(Q->GetScore1())+","+QByteArray::number(Q->GetScore2())+","+QByteArray::number(Q->GetScore3())+")\n");
         Q=Q->next;
     }
     QMessageBox::information(this, "List of krasavchiks",mas);
